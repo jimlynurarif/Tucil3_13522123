@@ -3,7 +3,7 @@
 
 ## Description
 >Word Ladder
->Using A* Search Algorithm or Greedy Best First Search or Uniform Cost Search
+>Using A* Search Algorithm or Greedy Best First Search or Uniform Cost Search. This algorithm is used to sequentially search for words that must be passed from the source word to the destination word. A more complete explanation is in the docs repository
 
 ## Contributors 🐄
 | NIM | Nama |
