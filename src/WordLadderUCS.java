@@ -2,6 +2,30 @@ package src;
 import java.util.*;
 
 public class WordLadderUCS {
+
+    private List<String> ladder;
+    private int visitedNodes;
+
+    public WordLadderUCS() {
+        this.ladder = new ArrayList<>();
+        this.visitedNodes = 0;
+    }
+
+    public List<String> getLadder() {
+        return ladder;
+    }
+
+    public int getVisitedNodes() {
+        return visitedNodes;
+    }
+
+    public void setLadder(List<String> ladder) {
+        this.ladder = ladder;
+    }
+
+    public void addVisitedNodes() {
+        this.visitedNodes++;
+    }
     
     static class Node {
         String word;
@@ -15,7 +39,8 @@ public class WordLadderUCS {
         }
     }
     
-    static List<String> findWordLadder(String startWord, String endWord, Set<String> wordList) {
+    static WordLadderUCS findWordLadder(String startWord, String endWord, Set<String> wordList) {
+        WordLadderUCS wordLadderUCS = new WordLadderUCS();
         Queue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(node -> node.cost));
         Set<String> visited = new HashSet<>();
         
@@ -23,10 +48,12 @@ public class WordLadderUCS {
         visited.add(startWord);
         
         while (!queue.isEmpty()) {
+            wordLadderUCS.addVisitedNodes();
             Node current = queue.poll();
             
             if (current.word.equals(endWord)) {
-                return constructPath(current);
+                wordLadderUCS.setLadder(constructPath(current));
+                return wordLadderUCS;
             }
             
             List<String> neighbors = getNeighbors(current.word, wordList);

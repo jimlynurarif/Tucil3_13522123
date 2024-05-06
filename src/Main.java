@@ -50,29 +50,41 @@ public class Main {
     }
 
     public static void runAStar(String start, String end, Set<String> wordList) {
-        List<String> ladder = WordLadderAStar.Astar(start, end, wordList);
+        //List<String> ladder, int visitedNodes = WordLadderAStar.Astar(start, end, wordList);
+        WordLadderAStar wordLadderAStar = WordLadderAStar.Astar(start, end, wordList);
+        List<String> ladder = wordLadderAStar.getLadder();
+        int visitedNodes = wordLadderAStar.getVisitedNodes();
+
         if (ladder != null) {
             System.out.println("Shortest path from " + start + " to " + end + ": " + ladder);
+            System.out.println("Visited nodes: " + visitedNodes);
         } else {
             System.out.println("No path found from " + start + " to " + end);
         }
     }
 
     public static void runGBFS(String start, String end, Set<String> wordList) {
-        List<String> ladder = WordLadderGBFS.greedyBestFirstSearch(start, end, wordList);
+        // List<String> ladder = WordLadderGBFS.greedyBestFirstSearch(start, end, wordList);
+        WordLadderGBFS wordLadderGBFS = WordLadderGBFS.greedyBestFirstSearch(start, end, wordList);
+        List<String> ladder = wordLadderGBFS.getLadder();
+        int visitedNodes = wordLadderGBFS.getVisitedNodes();
         
         if (ladder != null) {
             System.out.println("Shortest path from " + start + " to " + end + ": " + ladder);
+            System.out.println("Visited nodes: " + visitedNodes);
         } else {
             System.out.println("No path found from " + start + " to " + end);
         }
     }
 
     public static void runUCS(String start, String end, Set<String> wordList) {
-        List<String> ladder = WordLadderUCS.findWordLadder(start, end, wordList);
+        WordLadderUCS UCS = WordLadderUCS.findWordLadder(start, end, wordList);
+        List<String> ladder = UCS.getLadder();
+        int visitedNodes = UCS.getVisitedNodes();
         
         if (ladder != null) {
             System.out.println("Shortest path from " + start + " to " + end + ": " + ladder);
+            System.out.println("Visited nodes: " + visitedNodes);
         } else {
             System.out.println("No path found from " + start + " to " + end);
         }
