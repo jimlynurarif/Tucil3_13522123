@@ -1,0 +1,13 @@
+contoh berhasil:
+Source: earn
+Destination: make
+
+contoh Source tidak ada di word.txt
+Source: clarkson
+
+contoh Destination tidak ada di word.txt
+Source: clarkson
+
+contoh tidak ada ladder nya:
+Source: erlking
+Destination: maximal

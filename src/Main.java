@@ -13,11 +13,24 @@ public class Main {
         int choice = scanner.nextInt();
         System.out.println("Masukkan Source Word: ");
         String start = scanner.next();
-        System.out.println("Masukkan Destination Word: ");
-        String end = scanner.next();
 
         String filePath = "word.txt";
         Set<String> wordList = print.readWordListFromFile(filePath, start);
+
+        while (!wordList.contains(start)) {
+            System.out.println("Start word not found in word.txt file");
+            System.out.println("Masukkan Start Word: ");
+            start = scanner.next();
+        }
+
+        System.out.println("Masukkan Destination Word: ");
+        String end = scanner.next();
+
+        while (!wordList.contains(end)) {
+            System.out.println("Destination word not found in word.txt file");
+            System.out.println("Masukkan Destination Word: ");
+            end = scanner.next();
+        }
 
         switch (choice) {
             case 1:
