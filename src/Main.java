@@ -36,31 +36,31 @@ public class Main {
             end = scanner.next();
         }
 
-        int startTime = (int) System.currentTimeMillis();
+        int time;
         switch (choice) {
             case 1:
                 System.out.println("You have selected A* Algorithm.");
-                runAStar(start, end, wordList);
+                time = runAStar(start, end, wordList);
                 break;
             case 2:
                 System.out.println("You have selected GBFS Algorithm.");
-                runGBFS(start, end, wordList);
+                time = runGBFS(start, end, wordList);
                 break;
             case 3:
                 System.out.println("You have selected UCS Algorithm.");
-                runUCS(start, end, wordList);
+                time = runUCS(start, end, wordList);
                 break;
             default:
                 System.out.println("Invalid choice.");
+                time = -1;
         }
-        int endTime = (int) System.currentTimeMillis();
-        System.out.println("Time taken: " + (endTime - startTime) + "ms");
-
         scanner.close();
+
+        System.out.println("Time taken: " + time + " ms");
     }
 
-    public static void runAStar(String start, String end, Set<String> wordList) {
-        //List<String> ladder, int visitedNodes = WordLadderAStar.Astar(start, end, wordList);
+    public static int runAStar(String start, String end, Set<String> wordList) {
+        int startTime = (int) System.currentTimeMillis();
         WordLadderAStar wordLadderAStar = WordLadderAStar.Astar(start, end, wordList);
         List<String> ladder = wordLadderAStar.getLadder();
         int visitedNodes = wordLadderAStar.getVisitedNodes();
@@ -71,10 +71,12 @@ public class Main {
         } else {
             System.out.println("No path found from " + start + " to " + end);
         }
+        int endTime = (int) System.currentTimeMillis();
+        return endTime - startTime;
     }
 
-    public static void runGBFS(String start, String end, Set<String> wordList) {
-        // List<String> ladder = WordLadderGBFS.greedyBestFirstSearch(start, end, wordList);
+    public static int runGBFS(String start, String end, Set<String> wordList) {
+        int startTime = (int) System.currentTimeMillis();
         WordLadderGBFS wordLadderGBFS = WordLadderGBFS.greedyBestFirstSearch(start, end, wordList);
         List<String> ladder = wordLadderGBFS.getLadder();
         int visitedNodes = wordLadderGBFS.getVisitedNodes();
@@ -85,9 +87,12 @@ public class Main {
         } else {
             System.out.println("No path found from " + start + " to " + end);
         }
+        int endTime = (int) System.currentTimeMillis();
+        return endTime - startTime;
     }
 
-    public static void runUCS(String start, String end, Set<String> wordList) {
+    public static int runUCS(String start, String end, Set<String> wordList) {
+        int startTime = (int) System.currentTimeMillis();
         WordLadderUCS UCS = WordLadderUCS.findWordLadder(start, end, wordList);
         List<String> ladder = UCS.getLadder();
         int visitedNodes = UCS.getVisitedNodes();
@@ -98,6 +103,8 @@ public class Main {
         } else {
             System.out.println("No path found from " + start + " to " + end);
         }
+        int endTime = (int) System.currentTimeMillis();
+        return endTime - startTime;
     }
 }
 
