@@ -3,16 +3,6 @@ import java.util.*;
 
 public class WordLadderGBFS {
     
-    private static int hammingDistance(String word1, String word2) {
-        int distance = 0;
-        for (int i = 0; i < word1.length(); i++) {
-            if (word1.charAt(i) != word2.charAt(i)) {
-                distance++;
-            }
-        }
-        return distance;
-    }
-    
     static List<String> greedyBestFirstSearch(String start, String end, Set<String> wordList) {
         List<String> ladder = new ArrayList<>();
         PriorityQueue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(a -> a.distance));
@@ -36,8 +26,8 @@ public class WordLadderGBFS {
             visited.add(currentWord);
             
             for (String word : wordList) {
-                if (!visited.contains(word) && hammingDistance(word, currentWord) == 1) {
-                    queue.offer(new Node(word, hammingDistance(word, end), current));
+                if (!visited.contains(word) && hamming.hammingDistance(word, currentWord) == 1) {
+                    queue.offer(new Node(word, hamming.hammingDistance(word, end), current));
                 }
             }
         }

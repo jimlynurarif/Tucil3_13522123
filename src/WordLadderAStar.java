@@ -17,23 +17,12 @@ public class WordLadderAStar {
         }
     }
 
-   
-    static int hammingDistance(String word1, String word2) {
-        int count = 0;
-        for (int i = 0; i < word1.length(); i++) {
-            if (word1.charAt(i) != word2.charAt(i)) {
-                count++;
-            }
-        }
-        return count;
-    }
-
     static List<String> findPath(String start, String end, Set<String> wordList) {
     
         PriorityQueue<Node> openList = new PriorityQueue<>(Comparator.comparingInt(node -> node.f));
         Set<String> closedList = new HashSet<>();
         Map<String, Node> parentMap = new HashMap<>();
-        Node startNode = new Node(start, 0, hammingDistance(start, end), null);
+        Node startNode = new Node(start, 0, hamming.hammingDistance(start, end), null);
         openList.add(startNode);
 
         while (!openList.isEmpty()) {
@@ -49,9 +38,9 @@ public class WordLadderAStar {
             }
 
             for (String neighbor : wordList) {
-                if (!closedList.contains(neighbor) && hammingDistance(current.word, neighbor) == 1) {
+                if (!closedList.contains(neighbor) && hamming.hammingDistance(current.word, neighbor) == 1) {
                     int g = current.g + 1;
-                    int h = hammingDistance(neighbor, end);
+                    int h = hamming.hammingDistance(neighbor, end);
                     Node newNode = new Node(neighbor, g, h, current);
 
                     if (!openList.contains(newNode) || g < newNode.g) {
