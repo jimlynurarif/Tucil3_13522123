@@ -83,19 +83,4 @@ public class WordLadderAStar {
     }
     return wordList;
     }
-
-    // public static void main(String[] args) {
-    //     String start = "frown";
-    //     String end = "smile";
-        
-    //     String filePath = "word.txt";
-    //     Set<String> wordList = readWordListFromFile(filePath, start);
-
-    //     List<String> path = findPath(start, end, wordList);
-    //     if (path != null) {
-    //         System.out.println("Shortest path from " + start + " to " + end + ": " + path);
-    //     } else {
-    //         System.out.println("No path found from " + start + " to " + end);
-    //     }
-    // }
 }
