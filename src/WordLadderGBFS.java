@@ -16,7 +16,7 @@ public class WordLadderGBFS {
         return distance;
     }
     
-    private static List<String> greedyBestFirstSearch(String start, String end, Set<String> wordList) {
+    static List<String> greedyBestFirstSearch(String start, String end, Set<String> wordList) {
         List<String> ladder = new ArrayList<>();
         PriorityQueue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(a -> a.distance));
         Set<String> visited = new HashSet<>();
@@ -82,23 +82,23 @@ public class WordLadderGBFS {
     return wordList;
     }
     
-    public static void main(String[] args) {
+    // public static void main(String[] args) {
 
-        String start = "frown";
-        String end = "smile";
+    //     String start = "cleave";
+    //     String end = "flower";
 
-        String filePath = "word.txt";
-        Set<String> wordList = readWordListFromFile(filePath, start);
+    //     String filePath = "word.txt";
+    //     Set<String> wordList = readWordListFromFile(filePath, start);
         
-        List<String> ladder = greedyBestFirstSearch(start, end, wordList);
+    //     List<String> ladder = greedyBestFirstSearch(start, end, wordList);
         
-        if (!ladder.isEmpty()) {
-            System.out.println("Word ladder from " + start + " to " + end + ":");
-            for (String word : ladder) {
-                System.out.println(word);
-            }
-        } else {
-            System.out.println("No word ladder found from " + start + " to " + end + ".");
-        }
-    }
+    //     if (!ladder.isEmpty()) {
+    //         System.out.println("Word ladder from " + start + " to " + end + ":");
+    //         for (String word : ladder) {
+    //             System.out.println(word);
+    //         }
+    //     } else {
+    //         System.out.println("No word ladder found from " + start + " to " + end + ".");
+    //     }
+    // }
 }
