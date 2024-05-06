@@ -18,33 +18,43 @@ public class Main {
         Set<String> wordList = print.readWordListFromFile(filePath, start);
 
         while (!wordList.contains(start)) {
-            System.out.println("Start word not found in word.txt file");
-            System.out.println("Masukkan Start Word: ");
+            System.out.println("Source word not found in word.txt file");
+            System.out.println("Input Source Word: ");
             start = scanner.next();
+            wordList = print.readWordListFromFile(filePath, start);
         }
 
-        System.out.println("Masukkan Destination Word: ");
+        System.out.println("Input Destination Word: ");
         String end = scanner.next();
 
         while (!wordList.contains(end)) {
+            if (end.length() != start.length()) {
+                System.out.println("Destination word must have the same length as the source word");
+            }
             System.out.println("Destination word not found in word.txt file");
-            System.out.println("Masukkan Destination Word: ");
+            System.out.println("Input Destination Word: ");
             end = scanner.next();
         }
 
+        int startTime = (int) System.currentTimeMillis();
         switch (choice) {
             case 1:
+                System.out.println("You have selected A* Algorithm.");
                 runAStar(start, end, wordList);
                 break;
             case 2:
+                System.out.println("You have selected GBFS Algorithm.");
                 runGBFS(start, end, wordList);
                 break;
             case 3:
+                System.out.println("You have selected UCS Algorithm.");
                 runUCS(start, end, wordList);
                 break;
             default:
                 System.out.println("Invalid choice.");
         }
+        int endTime = (int) System.currentTimeMillis();
+        System.out.println("Time taken: " + (endTime - startTime) + "ms");
 
         scanner.close();
     }
