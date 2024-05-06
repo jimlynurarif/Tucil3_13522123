@@ -66,7 +66,7 @@ public class WordLadderUCS {
             }
         }
         
-        return null; // No ladder found
+        return wordLadderUCS; // No ladder found
     }
     
     static List<String> getNeighbors(String word, Set<String> wordList) {
