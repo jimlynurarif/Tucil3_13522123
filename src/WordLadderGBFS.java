@@ -6,7 +6,6 @@ import java.util.*;
 
 public class WordLadderGBFS {
     
-    // Menghitung Hamming Distance antara dua kata
     private static int hammingDistance(String word1, String word2) {
         int distance = 0;
         for (int i = 0; i < word1.length(); i++) {
@@ -17,7 +16,6 @@ public class WordLadderGBFS {
         return distance;
     }
     
-    // Greedy Best-First Search untuk mencari Word Ladder
     private static List<String> greedyBestFirstSearch(String start, String end, Set<String> wordList) {
         List<String> ladder = new ArrayList<>();
         PriorityQueue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(a -> a.distance));
@@ -47,10 +45,9 @@ public class WordLadderGBFS {
             }
         }
         
-        return ladder; // Jika tidak ada solusi
+        return ladder;
     }
     
-    // Node untuk Greedy Best-First Search
     static class Node {
         String word;
         int distance;
@@ -68,7 +65,6 @@ public class WordLadderGBFS {
         }
     }
 
-    // buat baca file dictionary
     static Set<String> readWordListFromFile(String filePath, String start) {
     Set<String> wordList = new HashSet<>();
     int startLength = start.length();

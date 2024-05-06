@@ -6,13 +6,12 @@ import java.util.*;
 
 public class WordLadderAStar {
 
-    // Class representing a node in the Word ladder graph
+
     static class Node {
         String word;
-        int f; // f = g + h, where g is the cost so far and h is the heuristic
-        int g; // cost so far
-        Node parent; // parent node
-
+        int f;
+        int g; 
+        Node parent;
         Node(String word, int g, int h, Node parent) {
             this.word = word;
             this.g = g;
@@ -21,7 +20,7 @@ public class WordLadderAStar {
         }
     }
 
-    // Function to calculate Hamming distance between two words
+   
     static int hammingDistance(String word1, String word2) {
         int count = 0;
         for (int i = 0; i < word1.length(); i++) {
@@ -32,25 +31,17 @@ public class WordLadderAStar {
         return count;
     }
 
-    // A* algorithm to find the shortest path between start and end words
     static List<String> findPath(String start, String end, Set<String> wordList) {
-        // Priority queue to store nodes with lowest f value on top
+    
         PriorityQueue<Node> openList = new PriorityQueue<>(Comparator.comparingInt(node -> node.f));
-        // Set to store visited nodes
         Set<String> closedList = new HashSet<>();
-        // Map to store parent node for each word
         Map<String, Node> parentMap = new HashMap<>();
-
-        // Initialize start node
         Node startNode = new Node(start, 0, hammingDistance(start, end), null);
         openList.add(startNode);
 
         while (!openList.isEmpty()) {
-            // Get node with lowest f value from open list
             Node current = openList.poll();
             closedList.add(current.word);
-
-            // If current node is the end word, reconstruct and return path
             if (current.word.equals(end)) {
                 List<String> path = new ArrayList<>();
                 while (current != null) {
@@ -60,14 +51,12 @@ public class WordLadderAStar {
                 return path;
             }
 
-            // Generate all neighbors of current word
             for (String neighbor : wordList) {
                 if (!closedList.contains(neighbor) && hammingDistance(current.word, neighbor) == 1) {
                     int g = current.g + 1;
                     int h = hammingDistance(neighbor, end);
                     Node newNode = new Node(neighbor, g, h, current);
 
-                    // If neighbor is not in open list or new path is better than previous path, add it to open list
                     if (!openList.contains(newNode) || g < newNode.g) {
                         openList.add(newNode);
                         parentMap.put(neighbor, current);
@@ -75,8 +64,6 @@ public class WordLadderAStar {
                 }
             }
         }
-
-        // No path found
         return null;
     }
     

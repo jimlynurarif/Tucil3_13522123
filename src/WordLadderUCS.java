@@ -6,7 +6,6 @@ import java.util.*;
 
 public class WordLadderUCS {
     
-    // Representing a node in the word ladder graph
     static class Node {
         String word;
         int cost;
@@ -19,7 +18,6 @@ public class WordLadderUCS {
         }
     }
     
-    // Function to find the shortest word ladder using UCS
     static List<String> findWordLadder(String startWord, String endWord, Set<String> wordList) {
         Queue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(node -> node.cost));
         Set<String> visited = new HashSet<>();
@@ -47,7 +45,6 @@ public class WordLadderUCS {
         return null; // No ladder found
     }
     
-    // Function to get neighbors of a word
     static List<String> getNeighbors(String word, Set<String> wordList) {
         List<String> neighbors = new ArrayList<>();
         char[] chars = word.toCharArray();
@@ -63,13 +60,12 @@ public class WordLadderUCS {
                     }
                 }
             }
-            chars[i] = originalChar; // Revert back to the original character
+            chars[i] = originalChar;
         }
         
         return neighbors;
     }
     
-    // Function to construct the ladder path from the end node
     static List<String> constructPath(Node endNode) {
         List<String> ladder = new ArrayList<>();
         Node current = endNode;
@@ -80,7 +76,6 @@ public class WordLadderUCS {
         return ladder;
     }
 
-    // buat baca file dictionary
     static Set<String> readWordListFromFile(String filePath, String start) {
     Set<String> wordList = new HashSet<>();
     int startLength = start.length();
