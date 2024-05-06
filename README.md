@@ -1,5 +1,7 @@
 # Tucil Stima 🌱
 >Tugas Kecil 3 IF2211 Algorithm Strategies
+>Word Ladder
+>Using A* Search Algorithm or Greedy Best First Search or Uniform Cost Search
 
 ## Contributors 🐄
 | NIM | Nama |
