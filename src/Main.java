@@ -6,13 +6,14 @@ public class Main {
 
         System.out.println("                       ");
         System.out.println("Welcome to Word Ladder!");
-        System.out.println("Please Select Algorithm NUMBER: ");
+        System.out.println("                       ");
         System.out.println("1. A* Algorithm");
         System.out.println("2. Greedy Best First Search Algorithm");
         System.out.println("3. Uniform Cost Search Algorithm");
+        System.out.print("Choose the algorithm NUMBER you want to use: ");
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
-        System.out.println("Masukkan Source Word: ");
+        System.out.print("Input Source Word: ");
         String start = scanner.next();
 
         String filePath = "word.txt";
@@ -20,12 +21,12 @@ public class Main {
 
         while (!wordList.contains(start)) {
             System.out.println("Source word not found in word.txt file");
-            System.out.println("Input Source Word: ");
+            System.out.print("Input Source Word: ");
             start = scanner.next();
             wordList = print.readWordListFromFile(filePath, start);
         }
 
-        System.out.println("Input Destination Word: ");
+        System.out.print("Input Destination Word: ");
         String end = scanner.next();
 
         while (!wordList.contains(end)) {
@@ -33,21 +34,24 @@ public class Main {
                 System.out.println("Destination word must have the same length as the source word");
             }
             System.out.println("Destination word not found in word.txt file");
-            System.out.println("Input Destination Word: ");
+            System.out.print("Input Destination Word: ");
             end = scanner.next();
         }
 
         int time;
         switch (choice) {
             case 1:
+                System.out.println("                               ");
                 System.out.println("You have selected A* Algorithm.");
                 time = runAStar(start, end, wordList);
                 break;
             case 2:
+                System.out.println("                                 ");
                 System.out.println("You have selected GBFS Algorithm.");
                 time = runGBFS(start, end, wordList);
                 break;
             case 3:
+                System.out.println("                                ");
                 System.out.println("You have selected UCS Algorithm.");
                 time = runUCS(start, end, wordList);
                 break;
@@ -67,7 +71,7 @@ public class Main {
         int visitedNodes = wordLadderAStar.getVisitedNodes();
 
         if (ladder != null) {
-            System.out.println("Shortest path from " + start + " to " + end + ": " + ladder);
+            System.out.println("Path from " + start + " to " + end + ": " + ladder);
             System.out.println("Visited nodes: " + visitedNodes);
         } else {
             System.out.println("No path found from " + start + " to " + end);
@@ -83,7 +87,7 @@ public class Main {
         int visitedNodes = wordLadderGBFS.getVisitedNodes();
         
         if (ladder != null) {
-            System.out.println("Shortest path from " + start + " to " + end + ": " + ladder);
+            System.out.println("Path from " + start + " to " + end + ": " + ladder);
             System.out.println("Visited nodes: " + visitedNodes);
         } else {
             System.out.println("No path found from " + start + " to " + end);
@@ -99,7 +103,7 @@ public class Main {
         int visitedNodes = UCS.getVisitedNodes();
         
         if (ladder != null) {
-            System.out.println("Shortest path from " + start + " to " + end + ": " + ladder);
+            System.out.println("Path from " + start + " to " + end + ": " + ladder);
             System.out.println("Visited nodes: " + visitedNodes);
         } else {
             System.out.println("No path found from " + start + " to " + end);
