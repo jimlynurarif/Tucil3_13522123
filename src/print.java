@@ -7,7 +7,6 @@ import java.util.Set;
 
 public class print {
 
-    // Function to read word list from file and filter words of same length as start
     static Set<String> readWordListFromFile(String filePath, String start) {
         Set<String> wordList = new HashSet<>();
         int startLength = start.length();
