@@ -92,24 +92,4 @@ public class WordLadderUCS {
     }
     return wordList;
     }
-
-    
-    
-    // public static void main(String[] args) {
-    //     String startWord = "frown";
-    //     String endWord = "smile";
-
-    //     String filePath = "word.txt";
-    //     Set<String> wordList = readWordListFromFile(filePath, startWord);
-        
-    //     List<String> wordLadder = findWordLadder(startWord, endWord, wordList);
-    //     if (wordLadder != null) {
-    //         System.out.println("Shortest word ladder:");
-    //         for (String word : wordLadder) {
-    //             System.out.print(word + " ");
-    //         }
-    //     } else {
-    //         System.out.println("No word ladder found.");
-    //     }
-    // }
 }

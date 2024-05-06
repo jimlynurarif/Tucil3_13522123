@@ -81,24 +81,4 @@ public class WordLadderGBFS {
     }
     return wordList;
     }
-    
-    // public static void main(String[] args) {
-
-    //     String start = "cleave";
-    //     String end = "flower";
-
-    //     String filePath = "word.txt";
-    //     Set<String> wordList = readWordListFromFile(filePath, start);
-        
-    //     List<String> ladder = greedyBestFirstSearch(start, end, wordList);
-        
-    //     if (!ladder.isEmpty()) {
-    //         System.out.println("Word ladder from " + start + " to " + end + ":");
-    //         for (String word : ladder) {
-    //             System.out.println(word);
-    //         }
-    //     } else {
-    //         System.out.println("No word ladder found from " + start + " to " + end + ".");
-    //     }
-    // }
 }

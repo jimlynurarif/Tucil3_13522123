@@ -24,12 +24,4 @@ public class print {
         }
         return wordList;
     }
-
-    // Main method
-    // public static void main(String[] args) {
-    //     String start = "hit";
-    //     String filePath = "C:/Users/Jimly/Documents/stima3/word.txt";
-    //     Set<String> wordList = readWordListFromFile(filePath, start);
-    //     System.out.println("Word list: " + wordList);
-    // }
 }
