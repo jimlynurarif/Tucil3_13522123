@@ -50,7 +50,7 @@ public class Main {
     }
 
     public static void runAStar(String start, String end, Set<String> wordList) {
-        List<String> ladder = WordLadderAStar.findPath(start, end, wordList);
+        List<String> ladder = WordLadderAStar.Astar(start, end, wordList);
         if (ladder != null) {
             System.out.println("Shortest path from " + start + " to " + end + ": " + ladder);
         } else {

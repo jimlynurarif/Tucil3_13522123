@@ -4,6 +4,8 @@ import java.util.*;
 public class WordLadderAStar {
 
 
+    // g adalah biaya yang keluar untuk menggapai node ini
+    // h adalah nilai heuristik dari node ini
     static class Node {
         String word;
         int f;
@@ -17,7 +19,7 @@ public class WordLadderAStar {
         }
     }
 
-    static List<String> findPath(String start, String end, Set<String> wordList) {
+    static List<String> Astar(String start, String end, Set<String> wordList) {
     
         PriorityQueue<Node> openList = new PriorityQueue<>(Comparator.comparingInt(node -> node.f));
         Set<String> closedList = new HashSet<>();
