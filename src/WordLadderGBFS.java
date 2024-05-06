@@ -32,7 +32,7 @@ public class WordLadderGBFS {
         WordLadderGBFS wordLadderGBFS = new WordLadderGBFS();
         List<String> ladder = new ArrayList<>();
         wordLadderGBFS.setLadder(ladder);
-        PriorityQueue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(a -> a.distance));
+        PriorityQueue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(a -> a.cost));
         Set<String> visited = new HashSet<>();
         
         queue.offer(new Node(start, 0));
@@ -66,17 +66,17 @@ public class WordLadderGBFS {
     
     static class Node {
         String word;
-        int distance;
+        int cost;
         Node parent;
         
-        Node(String word, int distance) {
+        Node(String word, int cost) {
             this.word = word;
-            this.distance = distance;
+            this.cost = cost;
         }
         
-        Node(String word, int distance, Node parent) {
+        Node(String word, int cost, Node parent) {
             this.word = word;
-            this.distance = distance;
+            this.cost = cost;
             this.parent = parent;
         }
     }

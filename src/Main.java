@@ -4,8 +4,9 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
+        System.out.println("                       ");
         System.out.println("Welcome to Word Ladder!");
-        System.out.println("Please Select Algorithm: ");
+        System.out.println("Please Select Algorithm NUMBER: ");
         System.out.println("1. A* Algorithm");
         System.out.println("2. Greedy Best First Search Algorithm");
         System.out.println("3. Uniform Cost Search Algorithm");
