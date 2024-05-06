@@ -17,7 +17,7 @@ git clone https://github.com/jimlynurarif/Tucil3_13522123.git
 ```
 2. Go into the root directory
 ```
-cd Tubes_OOP
+cd Tucil3_13522123
 ```
 3. Go into src directory
 ```
