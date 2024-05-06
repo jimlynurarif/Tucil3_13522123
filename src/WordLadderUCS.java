@@ -39,7 +39,7 @@ public class WordLadderUCS {
         }
     }
     
-    static WordLadderUCS findWordLadder(String startWord, String endWord, Set<String> wordList) {
+    static WordLadderUCS UCS(String startWord, String endWord, Set<String> wordList) {
         WordLadderUCS wordLadderUCS = new WordLadderUCS();
         Queue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(node -> node.cost));
         Set<String> visited = new HashSet<>();

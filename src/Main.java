@@ -82,7 +82,7 @@ public class Main {
 
     public static int runGBFS(String start, String end, Set<String> wordList) {
         int startTime = (int) System.currentTimeMillis();
-        WordLadderGBFS wordLadderGBFS = WordLadderGBFS.greedyBestFirstSearch(start, end, wordList);
+        WordLadderGBFS wordLadderGBFS = WordLadderGBFS.GBFS(start, end, wordList);
         List<String> ladder = wordLadderGBFS.getLadder();
         int visitedNodes = wordLadderGBFS.getVisitedNodes();
         
@@ -98,9 +98,9 @@ public class Main {
 
     public static int runUCS(String start, String end, Set<String> wordList) {
         int startTime = (int) System.currentTimeMillis();
-        WordLadderUCS UCS = WordLadderUCS.findWordLadder(start, end, wordList);
-        List<String> ladder = UCS.getLadder();
-        int visitedNodes = UCS.getVisitedNodes();
+        WordLadderUCS wordLadderUCS = WordLadderUCS.UCS(start, end, wordList);
+        List<String> ladder = wordLadderUCS.getLadder();
+        int visitedNodes = wordLadderUCS.getVisitedNodes();
         
         if (ladder != null) {
             System.out.println("Path from " + start + " to " + end + ": " + ladder);

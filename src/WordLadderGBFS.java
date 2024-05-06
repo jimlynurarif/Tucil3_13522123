@@ -26,8 +26,25 @@ public class WordLadderGBFS {
     public void addVisitedNodes() {
         this.visitedNodes++;
     }
+
+    static class Node {
+        String word;
+        int cost;
+        Node parent;
+        
+        Node(String word, int cost) {
+            this.word = word;
+            this.cost = cost;
+        }
+        
+        Node(String word, int cost, Node parent) {
+            this.word = word;
+            this.cost = cost;
+            this.parent = parent;
+        }
+    }
     
-    static WordLadderGBFS greedyBestFirstSearch(String start, String end, Set<String> wordList) {
+    static WordLadderGBFS GBFS(String start, String end, Set<String> wordList) {
 
         WordLadderGBFS wordLadderGBFS = new WordLadderGBFS();
         List<String> ladder = new ArrayList<>();
@@ -62,22 +79,5 @@ public class WordLadderGBFS {
         }
         
         return wordLadderGBFS;
-    }
-    
-    static class Node {
-        String word;
-        int cost;
-        Node parent;
-        
-        Node(String word, int cost) {
-            this.word = word;
-            this.cost = cost;
-        }
-        
-        Node(String word, int cost, Node parent) {
-            this.word = word;
-            this.cost = cost;
-            this.parent = parent;
-        }
     }
 }
