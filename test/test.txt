@@ -11,3 +11,13 @@ Source: clarkson
 contoh tidak ada ladder nya:
 Source: erlking
 Destination: maximal
+
+
+test case di laporan:
+earn-make
+belt-loop
+frown-smile
+door-jamb
+team-crew
+take-away
+grass-roots
